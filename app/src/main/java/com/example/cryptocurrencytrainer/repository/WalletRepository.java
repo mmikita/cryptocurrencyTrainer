@@ -11,36 +11,43 @@ public class WalletRepository extends SQLiteOpenHelper {
 
 
     private static final String DB_NAME = "coffeina";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     SQLiteDatabase db;
 
     public WalletRepository(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
-        db = this.getReadableDatabase();
+        db = this.getWritableDatabase();
     }
 
-    public  String getCurrentWallet(){
+    public String[] getCurrentWallet() {
+        String[] values = new String[4];
 
-
-
-        Cursor cursor = db.query ("WALLET",
-                new String[] {"VALUE"},
+        Cursor cursor = db.query("WALLET",
+                new String[]{"VALUE_PLN", "BTC", "ETM", "LTC"},
                 "_id = ?",
-                new String[] {Integer.toString(1)},
-                null, null,null);
+                new String[]{Integer.toString(1)},
+                null, null, null);
+        if(cursor.moveToFirst()){
+            for(int i =0; i<values.length; i++){
+                Log.i("aaaaaaaa", cursor.getString(i));
+                values[i] = cursor.getString(i);
+            }
 
-
-        return cursor.moveToFirst()? cursor.getString(0)+ " zł": "0 zł";
+        }
+        cursor.close();
+        db.close();
+        return values;
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        db.execSQL("CREATE TABLE WALLET(_id INTEGER PRIMARY KEY AUTOINCREMENT, VALUE TEXT)");
-
-
+        db.execSQL("CREATE TABLE WALLET(_id INTEGER PRIMARY KEY AUTOINCREMENT, VALUE_PLN TEXT, BTC TEXT, ETM TEXT, LTC TEXT)");
         ContentValues walletRow = new ContentValues();
-        walletRow.put("VALUE", "323");
+        walletRow.put("VALUE_PLN", "232");
+        walletRow.put("BTC", "1");
+        walletRow.put("ETM", "2");
+        walletRow.put("LTC", "3");
         db.insert("WALLET", null, walletRow);
 
     }
@@ -50,10 +57,9 @@ public class WalletRepository extends SQLiteOpenHelper {
 
     }
 
-    public void setValue()
-    {
+    public void setValue() {
         ContentValues walletRow = new ContentValues();
-        walletRow.put("VALUE", "1111");
+        walletRow.put("VALUE_PLN", "1111");
         db.update("WALLET", walletRow, "_id = ?", new String[]{"1"});
     }
 }

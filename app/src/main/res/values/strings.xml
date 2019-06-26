@@ -7,4 +7,6 @@
     <string name="litecoin">Litecoin</string>
     <string name="kup">Kup</string>
     <string name="sprzedaj">Sprzedaj</string>
+    <string name="cena_za_1">Cena za 1:</string>
+    <string name="_0">0</string>
 </resources>

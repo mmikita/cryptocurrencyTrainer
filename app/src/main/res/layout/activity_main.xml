@@ -5,14 +5,14 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:weightSum="6">
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/oszcz_dno_ci"
-        android:textSize="42sp"/>
+        android:textSize="32sp"/>
 
     <TextView
         android:id="@+id/wallet"
@@ -21,14 +21,14 @@
         android:layout_gravity="center"
         android:layout_marginTop="15sp"
         android:text="@string/zl"
-        android:textSize="42sp"/>
+        android:textSize="32sp"/>
 
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="65sp">
+        android:layout_marginTop="45sp">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="45dp"
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="42sp"
+            android:textSize="32sp"
             android:id="@+id/btc"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ethereum"
-            android:textSize="42sp"
+            android:textSize="32sp"
             android:layout_weight="2"
             android:gravity="center"/>
 
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/litecoin"
-            android:textSize="42sp"
+            android:textSize="32sp"
             android:layout_weight="2"
             android:gravity="center"/>
 
