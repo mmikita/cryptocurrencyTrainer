@@ -1,12 +1,13 @@
 package com.example.cryptocurrencytrainer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.cryptocurrencytrainer.repository.WalletRepository;
-import com.example.service.CurrencyService;
+import com.example.cryptocurrencytrainer.service.CurrencyService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buy(View view) {
-        wr.setValue();
-        ((TextView) findViewById(R.id.wallet)).setText(wr.getCurrentWallet()[0]);
+     Intent intent = new Intent(this, BuyActivity.class);
+     startActivity(intent);
     }
 
     public void sell(View view) {

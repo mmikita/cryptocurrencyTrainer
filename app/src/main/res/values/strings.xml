@@ -9,4 +9,10 @@
     <string name="sprzedaj">Sprzedaj</string>
     <string name="cena_za_1">Cena za 1:</string>
     <string name="_0">0</string>
+    <string name="koszt">Koszt:</string>
+    <string-array name="currency">
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>Litecoin</item>
+    </string-array>
 </resources>

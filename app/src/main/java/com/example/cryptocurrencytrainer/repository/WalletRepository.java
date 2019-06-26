@@ -44,10 +44,10 @@ public class WalletRepository extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE WALLET(_id INTEGER PRIMARY KEY AUTOINCREMENT, VALUE_PLN TEXT, BTC TEXT, ETM TEXT, LTC TEXT)");
         ContentValues walletRow = new ContentValues();
-        walletRow.put("VALUE_PLN", "232");
-        walletRow.put("BTC", "1");
-        walletRow.put("ETM", "2");
-        walletRow.put("LTC", "3");
+        walletRow.put("VALUE_PLN", "50000");
+        walletRow.put("BTC", "0");
+        walletRow.put("ETM", "0");
+        walletRow.put("LTC", "0");
         db.insert("WALLET", null, walletRow);
 
     }
