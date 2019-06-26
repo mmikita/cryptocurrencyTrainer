@@ -127,7 +127,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_gravity="center"
-            android:text="@string/kup" />
+            android:text="@string/kup"
+            android:onClick="buy"/>
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="0dp"
@@ -135,7 +136,8 @@
             android:layout_weight="1"
             android:text="@string/sprzedaj"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:onClick="sell"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
 
