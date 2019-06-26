@@ -5,14 +5,16 @@ import com.example.cryptocurrencytrainer.api.CurrencyExchangeCall;
 
 public class CurrencyService {
 
-    public String getCurrentCoinCost(String type){
-       String costInUSD =  CryptoCoinsCall.getCoinCost(type);
-       double costInPLN =  Double.parseDouble(costInUSD)* Double.parseDouble(CurrencyExchangeCall.getRatting(type)) ;
-       String costInString = String.valueOf(costInPLN);
+    public static String getCurrentCoinCost(String type) {
+        String costInUSD = CryptoCoinsCall.getCoinCost(type);
+        double costInPLN = Double.parseDouble(costInUSD) * Double.parseDouble(CurrencyExchangeCall.getRatting(type));
+        costInPLN *= 100;
+        costInPLN = Math.round(costInPLN);
+        costInPLN /= 100; 
+        String costInString = String.valueOf(costInPLN);
+
         return costInString;
     }
-
-
 
 
 }
