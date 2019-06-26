@@ -8,7 +8,6 @@
     android:weightSum="6">
 
     <TextView
-        android:layout_marginTop="35sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,9 +15,11 @@
         android:textSize="42sp"/>
 
     <TextView
+        android:id="@+id/wallet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="15sp"
         android:text="@string/zl"
         android:textSize="42sp"/>
 
@@ -30,8 +31,8 @@
         android:layout_marginTop="65sp">
 
         <android.support.v7.widget.AppCompatImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@mipmap/bitcoin"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="42sp"
-            android:text="5 zł" />
+            android:id="@+id/btc"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -60,8 +61,8 @@
         android:layout_marginTop="35sp">
 
         <android.support.v7.widget.AppCompatImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@mipmap/eternum"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="42sp"
-            android:text="5 zł"
+            android:id="@+id/etm"
             />
     </android.support.v7.widget.LinearLayoutCompat>
 
@@ -91,9 +92,9 @@
         android:layout_marginTop="35sp">
 
         <android.support.v7.widget.AppCompatImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@mipmap/Litecoin"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@mipmap/litecoin"
             android:layout_gravity="center"
             android:layout_weight="1"
             />
@@ -111,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="42sp"
-            android:text="5 zł"
+            android:id="@+id/ltc"
             />
     </android.support.v7.widget.LinearLayoutCompat>
 
