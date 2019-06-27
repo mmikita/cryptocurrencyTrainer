@@ -29,7 +29,6 @@ public class WalletRepository extends SQLiteOpenHelper {
                 null, null, null);
         if(cursor.moveToFirst()){
             for(int i =0; i<values.length; i++){
-                Log.i("aaaaaaaa", cursor.getString(i));
                 values[i] = cursor.getString(i);
             }
 

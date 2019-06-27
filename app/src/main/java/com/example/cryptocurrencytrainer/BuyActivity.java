@@ -24,7 +24,7 @@ public class BuyActivity extends AppCompatActivity {
        Spinner spinner = findViewById(R.id.coins);
         TextView cost = findViewById(R.id.cost);
       //  TextView selectedCoin = (TextView)spinner.getSelectedView(); selectedCoin.getText().toString();
-        cost.setText(service.getCurrentCoinCost("Bitcoin"));
+        cost.setText(service.getCurrentCoinCost("Bitcoin",this));
         EditText quantity = (EditText) findViewById(R.id.quantity);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -42,21 +42,29 @@ public class BuyActivity extends AppCompatActivity {
         quantity.addTextChangedListener(new TextWatcher() {
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {}{
+
+
+            }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
+                TextView cost = findViewById(R.id.cost);
+                TextView fullCost = findViewById(R.id.fullCost);
 
+                EditText quantity = (EditText) findViewById(R.id.quantity);
+                String message = quantity.getText().toString();
+                if(!message.equals(""))
+                    fullCost.setText(service.calculateFullCost(cost.getText().toString(), message));
             }
         });
-
-
     }
 
 
