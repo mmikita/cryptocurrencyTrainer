@@ -56,6 +56,11 @@ public class CurrencyService {
         WalletRepository repo = new WalletRepository(context);
         repo.buyCoins(quantity, type, cost, values);
     }
+
+    public void sellCoins(Context context, String quantity, String type, String cost, String[] values) {
+        WalletRepository repo = new WalletRepository(context);
+        repo.sell(quantity, type, cost, values);
+    }
 }
 
 

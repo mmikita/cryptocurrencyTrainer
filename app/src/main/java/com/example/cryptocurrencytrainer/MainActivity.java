@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
         return true;
     }
 
@@ -72,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void sell(View view) {
-        wr.setValue();
-        ((TextView) findViewById(R.id.wallet)).setText(wr.getCurrentWallet()[0]);
+        Intent intent = new Intent(this, SellActivity.class);
+        intent.putExtra("values", wr.getValues());
+        startActivity(intent);
 
     }
 }

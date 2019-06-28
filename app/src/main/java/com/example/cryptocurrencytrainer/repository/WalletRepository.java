@@ -110,6 +110,38 @@ public class WalletRepository extends SQLiteOpenHelper {
 
         db.close();
 
+    }
+
+    public void sell(String quantity, String type, String cost, String[] values) {
+        String coinType = "";
+        String coinQuantity = "";
+        switch (type) {
+            case "Bitcoin":
+                coinType = "BTC";
+                coinQuantity = values[1];
+                break;
+            case "Ethereum":
+                coinType = "ETM";
+                coinQuantity = values[2];
+                break;
+            case "Litecoin":
+                coinType = "LTC";
+                coinQuantity = values[3];
+                break;
+        }
+        db = this.getWritableDatabase();
+        String valuePLN = String.valueOf(Double.parseDouble(values[0]) + Double.parseDouble(cost));
+        String coinWalltetQuantity = String.valueOf(Double.parseDouble(coinQuantity) - Double.parseDouble(quantity));
+
+        ContentValues walletRow = new ContentValues();
+        walletRow.put("VALUE_PLN", valuePLN);
+        walletRow.put(coinType, coinWalltetQuantity);
+        db.update("WALLET", walletRow, "_id = ?", new String[]{"1"});
+
+        db.close();
 
     }
+
+
+
 }
