@@ -12,22 +12,16 @@ public class CurrencyService {
     private ProgressDialog progressBar;
     private TextView costView;
 
-    public String getCurrentCoinCost(String type, Context context, TextView costView) {
+    public void getCurrentCoinCost(String type, Context context, TextView costView) {
         setCostView(costView);
         String cost = CurrencyExchangeCall.getRatting();
         String ratting = CryptoCoinsCall.getCost();
-        if (cost.equals("") && ratting.equals("")) {
             progressBar = new ProgressDialog(context);
             progressBar.setMessage("Pobieranie danych...");
             progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             progressBar.show();//displays the progress bar
             CurrencyExchangeCall.getUSDRatting(context);
             CryptoCoinsCall.getCoinCost(type, context, progressBar, this);
-        }
-
-
-
-        return "0";
 
     }
 

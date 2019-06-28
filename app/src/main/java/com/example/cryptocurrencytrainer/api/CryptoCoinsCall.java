@@ -63,10 +63,10 @@ Log.i("linki", linkToRequest);
                 value = "btc-bitcoin";
                 break;
             case "Ethereum":
-                value = "btc-bitcoin";
+                value = "eth-ethereum";
                 break;
             case "Litecoin":
-                value = "eth-ethereum\n";
+                value = "ltc-litecoin";
                 break;
         }
         return value;

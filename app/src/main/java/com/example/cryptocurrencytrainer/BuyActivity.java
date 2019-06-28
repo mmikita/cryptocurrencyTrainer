@@ -1,5 +1,6 @@
 package com.example.cryptocurrencytrainer;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -13,29 +14,29 @@ import android.widget.TextView;
 import com.example.cryptocurrencytrainer.service.CurrencyService;
 
 public class BuyActivity extends AppCompatActivity {
+    Context buyContext;
     CurrencyService service;
+    Spinner coins;
+    TextView cost;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        buyContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
         service = new CurrencyService();
-       Spinner spinner = findViewById(R.id.coins);
-        TextView cost = findViewById(R.id.cost);
-      //  TextView selectedCoin = (TextView)spinner.getSelectedView(); selectedCoin.getText().toString();
-        service.getCurrentCoinCost("Bitcoin",this, cost);
-        EditText quantity = (EditText) findViewById(R.id.quantity);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        coins = findViewById(R.id.coins);
+        cost = findViewById(R.id.cost);
+        service.getCurrentCoinCost("Bitcoin",buyContext, cost);
+        EditText quantity =  findViewById(R.id.quantity);
+        coins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-
+                service.getCurrentCoinCost(coins.getSelectedItem().toString(),buyContext, cost);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-
             }
 
         });
