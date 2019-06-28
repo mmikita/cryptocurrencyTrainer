@@ -1,13 +1,15 @@
 package com.example.cryptocurrencytrainer.api;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.cryptocurrencytrainer.service.CurrencyService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +20,7 @@ public class CryptoCoinsCall {
     private static String REQUEST_LINK = "https://api.coinpaprika.com/v1/ticker/[coin]";
     private static String cost = "";
 
-    public static String getCoinCost(String type, Context context) {
+    public static String getCoinCost(String type, Context context, final ProgressDialog progressBar, final CurrencyService service) {
 
 
         String linkToRequest = REQUEST_LINK.replace("[coin]", getParamValue(type));
@@ -32,6 +34,8 @@ Log.i("linki", linkToRequest);
                         Log.i("OnResponse: ", response.toString());
                         try {
                             cost = response.getString("price_usd");
+                            progressBar.dismiss();
+                            service.calculateCostForOne();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -48,7 +52,7 @@ Log.i("linki", linkToRequest);
 
         MyRequestQueue.getInstance(context).addToRequestQueue(jsonArrayRequest);
 
-        return "12823.13";
+        return "0";
     }
 
 
@@ -66,5 +70,9 @@ Log.i("linki", linkToRequest);
                 break;
         }
         return value;
+    }
+
+    public static String getCost() {
+        return cost;
     }
 }

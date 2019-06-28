@@ -24,7 +24,7 @@ public class BuyActivity extends AppCompatActivity {
        Spinner spinner = findViewById(R.id.coins);
         TextView cost = findViewById(R.id.cost);
       //  TextView selectedCoin = (TextView)spinner.getSelectedView(); selectedCoin.getText().toString();
-        cost.setText(service.getCurrentCoinCost("Bitcoin",this));
+        service.getCurrentCoinCost("Bitcoin",this, cost);
         EditText quantity = (EditText) findViewById(R.id.quantity);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

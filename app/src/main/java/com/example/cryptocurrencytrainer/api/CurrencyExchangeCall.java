@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class CurrencyExchangeCall {
 
     private static String REQUEST_LINK = "http://api.nbp.pl/api/exchangerates/rates/a/USD?format=json";
-    private static String ratting = "2";
+    private static String ratting = "";
 
 
-    public static String getUSDRatting(Context context){
+    public static void getUSDRatting(Context context){
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, REQUEST_LINK, (String) null, new Response.Listener<JSONObject>() {
@@ -47,7 +47,6 @@ public class CurrencyExchangeCall {
 
 
 
-        return ratting;
     }
 
 
