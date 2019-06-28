@@ -6,11 +6,11 @@
     <string name="ethereum">Ethereum</string>
     <string name="litecoin">Litecoin</string>
     <string name="kup">Kup</string>
-    <string name="sprzedaj">Sprzedaj</string>
     <string name="cena_za_1">Cena za 1:</string>
     <string name="_0">0</string>
     <string name="koszt">Koszt:</string>
     <string name="resetuj_portfel">Resetuj portfel</string>
+    <string name="sprzedaj">Sprzedaj</string>
     <string-array name="currency">
         <item>Bitcoin</item>
         <item>Ethereum</item>
