@@ -74,17 +74,14 @@ public class BuyActivity extends AppCompatActivity {
     public void buyCoins(View view){
         TextView fullCost = findViewById(R.id.fullCost);
         EditText quantity =  findViewById(R.id.quantity);
-
         String message = quantity.getText().toString();
-
-
-
-            Bundle extras = getIntent().getExtras();
 
         Intent intent = getIntent();
         String[] myStrings = intent.getStringArrayExtra("values");
+        service.buyCoins(this, message, coins.getSelectedItem().toString(), fullCost.getText().toString(), myStrings);
 
-        Log.i("logujemy","uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" + myStrings[0]+" "+myStrings[1]);
+        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(mainActivityIntent);
 
 
 

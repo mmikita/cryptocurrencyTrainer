@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.cryptocurrencytrainer.api.CryptoCoinsCall;
 import com.example.cryptocurrencytrainer.api.CurrencyExchangeCall;
+import com.example.cryptocurrencytrainer.repository.WalletRepository;
 
 public class CurrencyService {
     private ProgressDialog progressBar;
@@ -16,16 +17,16 @@ public class CurrencyService {
         setCostView(costView);
         String cost = CurrencyExchangeCall.getRatting();
         String ratting = CryptoCoinsCall.getCost();
-            progressBar = new ProgressDialog(context);
-            progressBar.setMessage("Pobieranie danych...");
-            progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progressBar.show();//displays the progress bar
-            CurrencyExchangeCall.getUSDRatting(context);
-            CryptoCoinsCall.getCoinCost(type, context, progressBar, this);
+        progressBar = new ProgressDialog(context);
+        progressBar.setMessage("Pobieranie danych...");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.show();//displays the progress bar
+        CurrencyExchangeCall.getUSDRatting(context);
+        CryptoCoinsCall.getCoinCost(type, context, progressBar, this);
 
     }
 
-    public void calculateCostForOne(){
+    public void calculateCostForOne() {
 
         String ratting = CurrencyExchangeCall.getRatting();
         String cost = CryptoCoinsCall.getCost();
@@ -50,4 +51,11 @@ public class CurrencyService {
     public void setCostView(TextView costView) {
         this.costView = costView;
     }
+
+    public void buyCoins(Context context, String quantity, String type, String cost, String[] values) {
+        WalletRepository repo = new WalletRepository(context);
+        repo.buyCoins(quantity, type, cost, values);
+    }
 }
+
+
