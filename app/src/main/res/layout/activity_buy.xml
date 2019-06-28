@@ -87,6 +87,6 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:text="@string/kup"
-    android:onClick="buy"/>
+    android:onClick="buyCoins"/>
 
 </LinearLayout>

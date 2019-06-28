@@ -29,7 +29,6 @@ public class CurrencyService {
 
         String ratting = CurrencyExchangeCall.getRatting();
         String cost = CryptoCoinsCall.getCost();
-        Log.i("sprawdzam", ratting + " "+ cost);
         double costInPLN = Double.parseDouble(cost) * Double.parseDouble(ratting);
         costInPLN *= 100;
         costInPLN = Math.round(costInPLN);

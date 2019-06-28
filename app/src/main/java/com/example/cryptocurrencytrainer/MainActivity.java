@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void buy(View view) {
      Intent intent = new Intent(this, BuyActivity.class);
+        intent.putExtra("values", wr.getValues());
      startActivity(intent);
     }
 

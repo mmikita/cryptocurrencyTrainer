@@ -1,10 +1,12 @@
 package com.example.cryptocurrencytrainer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -69,12 +71,22 @@ public class BuyActivity extends AppCompatActivity {
     }
 
 
-    public void buyCoins(){
+    public void buyCoins(View view){
         TextView fullCost = findViewById(R.id.fullCost);
-        EditText quantity = (EditText) findViewById(R.id.quantity);
-
+        EditText quantity =  findViewById(R.id.quantity);
 
         String message = quantity.getText().toString();
-        fullCost.setText(service.calculateFullCost(fullCost.getText().toString(), ""));
+
+
+
+            Bundle extras = getIntent().getExtras();
+
+        Intent intent = getIntent();
+        String[] myStrings = intent.getStringArrayExtra("values");
+
+        Log.i("logujemy","uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" + myStrings[0]+" "+myStrings[1]);
+
+
+
     }
 }

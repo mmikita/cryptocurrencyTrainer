@@ -14,13 +14,17 @@ public class WalletRepository extends SQLiteOpenHelper {
     private static final int DB_VERSION = 2;
     SQLiteDatabase db;
 
+
+
+    String[] values;
+
     public WalletRepository(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         db = this.getWritableDatabase();
     }
 
     public String[] getCurrentWallet() {
-        String[] values = new String[4];
+         values = new String[4];
 
         Cursor cursor = db.query("WALLET",
                 new String[]{"VALUE_PLN", "BTC", "ETM", "LTC"},
@@ -60,5 +64,28 @@ public class WalletRepository extends SQLiteOpenHelper {
         ContentValues walletRow = new ContentValues();
         walletRow.put("VALUE_PLN", "1111");
         db.update("WALLET", walletRow, "_id = ?", new String[]{"1"});
+    }
+
+    public String[] getValues() {
+        return values;
+    }
+
+    public void buyCoins(String quantity, String type, String cost, String[] values){
+String coinType = "";
+        switch (type) {
+            case "Bitcoin":
+                coinType = "BTC";
+                break;
+            case "Ethereum":
+                coinType = "ETM";
+                break;
+            case "Litecoin":
+                coinType = "LTC";
+                break;
+        }
+        db = this.getWritableDatabase();
+        String valuePLN = String.valueOf(Double.parseDouble(values[0]) - Double.parseDouble(cost));
+
+
     }
 }
