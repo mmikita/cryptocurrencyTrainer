@@ -82,27 +82,9 @@ public class WalletRepository extends SQLiteOpenHelper {
         return values;
     }
 
-    public void buyCoins(String quantity, String type, String cost, String[] values) {
-        String coinType = "";
-        String coinQuantity = "";
-        switch (type) {
-            case "Bitcoin":
-                coinType = "BTC";
-                coinQuantity = values[1];
-                break;
-            case "Ethereum":
-                coinType = "ETM";
-                coinQuantity = values[2];
-                break;
-            case "Litecoin":
-                coinType = "LTC";
-                coinQuantity = values[3];
-                break;
-        }
-        db = this.getWritableDatabase();
-        String valuePLN = String.valueOf(Double.parseDouble(values[0]) - Double.parseDouble(cost));
-        String coinWalltetQuantity = String.valueOf(Double.parseDouble(coinQuantity) + Double.parseDouble(quantity));
+    public void buyCoins(String coinWalltetQuantity, String coinType, String valuePLN) {
 
+        db = this.getWritableDatabase();
         ContentValues walletRow = new ContentValues();
         walletRow.put("VALUE_PLN", valuePLN);
         walletRow.put(coinType, coinWalltetQuantity);
@@ -112,27 +94,8 @@ public class WalletRepository extends SQLiteOpenHelper {
 
     }
 
-    public void sell(String quantity, String type, String cost, String[] values) {
-        String coinType = "";
-        String coinQuantity = "";
-        switch (type) {
-            case "Bitcoin":
-                coinType = "BTC";
-                coinQuantity = values[1];
-                break;
-            case "Ethereum":
-                coinType = "ETM";
-                coinQuantity = values[2];
-                break;
-            case "Litecoin":
-                coinType = "LTC";
-                coinQuantity = values[3];
-                break;
-        }
+    public void sell(String coinWalltetQuantity, String coinType, String valuePLN) {
         db = this.getWritableDatabase();
-        String valuePLN = String.valueOf(Double.parseDouble(values[0]) + Double.parseDouble(cost));
-        String coinWalltetQuantity = String.valueOf(Double.parseDouble(coinQuantity) - Double.parseDouble(quantity));
-
         ContentValues walletRow = new ContentValues();
         walletRow.put("VALUE_PLN", valuePLN);
         walletRow.put(coinType, coinWalltetQuantity);

@@ -47,7 +47,6 @@ Log.i("linki", linkToRequest);
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Response error: ", error.toString());
                         progressBar.dismiss();
-                        CurrencyService.setIsInternetProblem(true);
                         service.displayInternetProblemDialog(context);
                     }
                 });
