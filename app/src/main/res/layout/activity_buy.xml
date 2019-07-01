@@ -4,15 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/coins"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/currency"
-        />
+        android:entries="@array/currency" />
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -26,13 +24,20 @@
             android:gravity="center"
             android:text="@string/cena_za_1" />
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/cost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="@string/_0" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/_0" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="@string/zl" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -51,14 +56,15 @@
 
         <EditText
             android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:digits="0123456789."
-            android:inputType="numberDecimal"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:inputType="numberDecimal" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
+
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,14 +85,21 @@
             android:gravity="center"
             android:text="@string/_0" />
 
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="@string/zl" />
 
     </android.support.v7.widget.LinearLayoutCompat>
-<android.support.v7.widget.AppCompatButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:text="@string/kup"
-    android:onClick="buyCoins"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:onClick="buyCoins"
+        android:text="@string/kup" />
 
 </LinearLayout>
