@@ -4,140 +4,147 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/oszcz_dno_ci"
-        android:textSize="32sp"/>
-
-    <TextView
-        android:id="@+id/wallet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15sp"
-        android:text="@string/zl"
-        android:textSize="32sp"/>
-
+        android:textSize="32sp" />
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="45sp">
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="right"
+            android:textSize="32sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/zl"
+            android:textSize="32sp" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45sp"
+        android:orientation="horizontal">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@mipmap/bitcoin"
             android:layout_gravity="center"
             android:layout_weight="1"
-            />
+            android:src="@mipmap/bitcoin" />
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
             android:text="@string/bitcoin"
-            android:textSize="42sp"
-            android:layout_weight="2"
-            android:gravity="center"/>
+            android:textSize="42sp" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="32sp"
-            android:id="@+id/btc"/>
+            android:textSize="32sp" />
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="35sp">
+        android:layout_marginTop="35sp"
+        android:orientation="horizontal">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@mipmap/eternum"
             android:layout_gravity="center"
             android:layout_weight="1"
-            />
+            android:src="@mipmap/eternum" />
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
             android:text="@string/ethereum"
-            android:textSize="32sp"
-            android:layout_weight="2"
-            android:gravity="center"/>
+            android:textSize="32sp" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/etm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="42sp"
-            android:id="@+id/etm"
-            />
+            android:textSize="42sp" />
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="35sp">
+        android:layout_marginTop="35sp"
+        android:orientation="horizontal">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@mipmap/litecoin"
             android:layout_gravity="center"
             android:layout_weight="1"
-            />
+            android:src="@mipmap/litecoin" />
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/litecoin"
-            android:textSize="32sp"
             android:layout_weight="2"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="@string/litecoin"
+            android:textSize="32sp" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/ltc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="42sp"
-            android:id="@+id/ltc"
-            />
+            android:textSize="42sp" />
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:orientation="horizontal">
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:text="@string/kup"
-            android:onClick="buy"/>
+            android:onClick="buy"
+            android:text="@string/kup" />
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/sprzedaj"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
-            android:onClick="sell"/>
+            android:onClick="sell"
+            android:text="@string/sprzedaj" />
     </android.support.v7.widget.LinearLayoutCompat>
 
 

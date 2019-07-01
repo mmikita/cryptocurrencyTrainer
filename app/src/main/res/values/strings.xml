@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">cryptocurrencyTrainer</string>
     <string name="oszcz_dno_ci">Oszczędności:</string>
-    <string name="zl">zł</string>
+    <string name="zl"> zł</string>
     <string name="bitcoin">Bitcoin</string>
     <string name="ethereum">Ethereum</string>
     <string name="litecoin">Litecoin</string>
