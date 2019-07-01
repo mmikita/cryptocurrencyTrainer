@@ -80,8 +80,7 @@ public class SellActivity extends AppCompatActivity {
         String[] myStrings = intent.getStringArrayExtra("values");
         service.sellCoins(this, message, coins.getSelectedItem().toString(), fullCost.getText().toString(), myStrings);
 
-        Intent mainActivityIntent = new Intent(this, MainActivity.class);
-        startActivity(mainActivityIntent);
+
 
 
 

@@ -1,7 +1,9 @@
 package com.example.cryptocurrencytrainer;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
        else{
             values = wr.getValues();
         }
-
+        values[0] = cService.roundTheStringValue(values[0]);
         ((TextView) findViewById(R.id.wallet)).setText(values[0]);
         ((TextView) findViewById(R.id.btc)).setText(values[1]);
         ((TextView) findViewById(R.id.etm)).setText(values[2]);
@@ -56,8 +58,22 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item:
-                wr.reset();
-                setWalletValues();
+
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Resetowanie portfela")
+                        .setMessage("Czy na pewno chcesz zresetować portfel?")
+                        .setPositiveButton("Tak", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                wr.reset();
+                                setWalletValues();
+                            }
+                        })
+                        .setNegativeButton("Nie", null)
+                        .show();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

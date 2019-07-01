@@ -20,7 +20,7 @@ public class CryptoCoinsCall {
     private static String REQUEST_LINK = "https://api.coinpaprika.com/v1/ticker/[coin]";
     private static String cost = "";
 
-    public static String getCoinCost(String type, Context context, final ProgressDialog progressBar, final CurrencyService service) {
+    public static String getCoinCost(String type, final Context context, final ProgressDialog progressBar, final CurrencyService service) {
 
 
         String linkToRequest = REQUEST_LINK.replace("[coin]", getParamValue(type));
@@ -46,7 +46,9 @@ Log.i("linki", linkToRequest);
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Response error: ", error.toString());
-
+                        progressBar.dismiss();
+                        CurrencyService.setIsInternetProblem(true);
+                        service.displayInternetProblemDialog(context);
                     }
                 });
 

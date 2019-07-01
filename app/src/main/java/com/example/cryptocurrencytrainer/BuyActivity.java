@@ -30,7 +30,7 @@ public class BuyActivity extends AppCompatActivity {
         service = new CurrencyService();
         coins = findViewById(R.id.coins);
         cost = findViewById(R.id.cost);
-        service.getCurrentCoinCost("Bitcoin",buyContext, cost);
+      //  service.getCurrentCoinCost("Bitcoin",buyContext, cost);
         EditText quantity =  findViewById(R.id.quantity);
         coins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -74,14 +74,14 @@ public class BuyActivity extends AppCompatActivity {
     public void buyCoins(View view){
         TextView fullCost = findViewById(R.id.fullCost);
         EditText quantity =  findViewById(R.id.quantity);
-        String message = quantity.getText().toString();
+        String quantityString = quantity.getText().toString();
 
         Intent intent = getIntent();
-        String[] myStrings = intent.getStringArrayExtra("values");
-        service.buyCoins(this, message, coins.getSelectedItem().toString(), fullCost.getText().toString(), myStrings);
+        String[] values = intent.getStringArrayExtra("values");
 
-        Intent mainActivityIntent = new Intent(this, MainActivity.class);
-        startActivity(mainActivityIntent);
+        service.buyCoins(this, quantityString, coins.getSelectedItem().toString(), fullCost.getText().toString(), values);
+
+
 
 
 
