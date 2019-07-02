@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -20,6 +19,8 @@ public class BuyActivity extends AppCompatActivity {
     CurrencyService service;
     Spinner coins;
     TextView cost;
+    Intent intent;
+    String[] values;
 
 
     @Override
@@ -30,13 +31,21 @@ public class BuyActivity extends AppCompatActivity {
         service = new CurrencyService();
         coins = findViewById(R.id.coins);
         cost = findViewById(R.id.cost);
-      //  service.getCurrentCoinCost("Bitcoin",buyContext, cost);
-        EditText quantity =  findViewById(R.id.quantity);
+        intent = getIntent();
+        values = intent.getStringArrayExtra("values");
+        TextView fullCost = findViewById(R.id.walletPLN);
+        fullCost.setText(values[0]);
+        EditText quantity = findViewById(R.id.quantity);
         coins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                service.getCurrentCoinCost(coins.getSelectedItem().toString(),buyContext, cost);
+                service.getCurrentCoinCost(coins.getSelectedItem().toString(), buyContext, cost);
+                TextView fullCost = findViewById(R.id.fullCost);
+                EditText quantity = (EditText) findViewById(R.id.quantity);
+                quantity.setText("0");
+                fullCost.setText("0");
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
             }
@@ -45,7 +54,10 @@ public class BuyActivity extends AppCompatActivity {
         quantity.addTextChangedListener(new TextWatcher() {
 
             @Override
-            public void afterTextChanged(Editable s) {}{
+            public void afterTextChanged(Editable s) {
+            }
+
+            {
 
 
             }
@@ -64,25 +76,18 @@ public class BuyActivity extends AppCompatActivity {
 
                 EditText quantity = (EditText) findViewById(R.id.quantity);
                 String message = quantity.getText().toString();
-                if(!message.equals(""))
+                if (!message.equals(""))
                     fullCost.setText(service.calculateFullCost(cost.getText().toString(), message));
             }
         });
     }
 
 
-    public void buyCoins(View view){
+    public void buyCoins(View view) {
         TextView fullCost = findViewById(R.id.fullCost);
-        EditText quantity =  findViewById(R.id.quantity);
+        EditText quantity = findViewById(R.id.quantity);
         String quantityString = quantity.getText().toString();
-
-        Intent intent = getIntent();
-        String[] values = intent.getStringArrayExtra("values");
-
         service.buyCoins(this, quantityString, coins.getSelectedItem().toString(), fullCost.getText().toString(), values);
-
-
-
 
 
     }

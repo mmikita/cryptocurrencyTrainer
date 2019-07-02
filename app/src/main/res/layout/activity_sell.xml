@@ -9,8 +9,9 @@
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/coins"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:entries="@array/currency" />
+
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -21,7 +22,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="left"
+            android:text="@string/ilosc_w_portfelu" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/coinsWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="@string/_0" />
+
+
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
             android:text="@string/cena_za_1" />
 
         <android.support.v7.widget.AppCompatTextView

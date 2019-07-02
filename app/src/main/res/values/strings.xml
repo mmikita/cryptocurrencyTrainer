@@ -11,6 +11,8 @@
     <string name="koszt">Koszt:</string>
     <string name="resetuj_portfel">Resetuj portfel</string>
     <string name="sprzedaj">Sprzedaj</string>
+    <string name="oszczednosci">Oszczednosci:</string>
+    <string name="ilosc_w_portfelu">Ilosc w portfelu:</string>
     <string-array name="currency">
         <item>Bitcoin</item>
         <item>Ethereum</item>
